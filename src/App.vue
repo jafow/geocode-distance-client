@@ -10,28 +10,16 @@
         <div class="toaster w-30-ns w-80" v-if="toast === 'expand'">
             <nav class="nav">
                 <ul class="list pl0 mt0">
-                    <router-link to="/" tag="li"
-                        class="nav-item h3"
-                        v-on:click="selectedRoute = 'home'"
-                        v-bind:class="{selected: selectedRoute === 'home'}">
+                    <router-link to="/" tag="li" class="nav-item h3">
                         Home
                     </router-link>
-                    <router-link to="/geocode" tag="li"
-                        class="nav-item h3"
-                        v-on:click="selectedRoute = 'geocode'"
-                        v-bind:class="{selected: selectedRoute === 'geocode'}">
-                        GeoCode 
+                    <router-link to="/geocode" tag="li" class="nav-item h3">
+                        GeoCode
                     </router-link>
-                    <router-link to="/reverse"
-                        tag="li"
-                        class="nav-item h3"
-                        v-bind:class="{selected: selectedRoute === 'reverse'}">
+                    <router-link to="/reverse" tag="li" class="nav-item h3">
                         Reverse
                     </router-link>
-                    <router-link to="/coords"
-                        tag="li"
-                        class="nav-item h3"
-                        v-bind:class="{selected: selectedRoute === 'coords'}">
+                    <router-link to="/coords" tag="li" class="nav-item h3">
                         Coords
                     </router-link>
                 </ul>
@@ -48,8 +36,7 @@ export default {
   data () {
     return {
       title: 'GeoCode App',
-      toast: 'collapse',
-      selectedRoute: 'home'
+      toast: 'collapse'
     }
   },
   methods: {
@@ -100,6 +87,9 @@ body {
   transform: translateX(-100%);
 }
 .selected {
+  background: lightgray;
+}
+.router-link-active {
   background: lightgray;
 }
 </style>
