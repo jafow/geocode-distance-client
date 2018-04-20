@@ -1,6 +1,6 @@
 {
   "name": "geocode-distance-client",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "frontend webapp and UI for geocode-distance backend",
   "author": "jafow <jared.a.fowler@gmail.com>",
   "private": true,
