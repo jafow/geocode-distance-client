@@ -10,7 +10,7 @@
         <div class="toaster w-30-ns w-80" v-if="toast === 'expand'">
             <nav class="nav">
                 <ul class="list pl0 mt0">
-                    <router-link to="/" tag="li" class="nav-item h3">
+                    <router-link to="/" tag="li" class="nav-item h3 pv3 hover-white hover-bg-green">
                         Home
                     </router-link>
                     <router-link to="/geocode" tag="li" class="nav-item h3 pv3 hover-white hover-bg-green">
@@ -61,7 +61,11 @@ export default {
 </script>
 
 <style>
+html,body {
+  height: 100%;
+}
 #app {
+  height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

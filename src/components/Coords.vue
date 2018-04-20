@@ -1,7 +1,7 @@
 <template>
     <div id="coords">
         <h1>{{ title }}</h1>
-        <section class="mw9 center w-50-ns w-100 pa3 ba b--light-blue cf">
+        <section class="mw9 center w-50-ns w-100 pa3 ba b--light-blue bg-white mt4 cf">
             <div class="description">{{ description }}</div>
             <form id="form-coords" class="center mt2 ph3-ns w-80">
                 <div class="mt5">

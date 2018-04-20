@@ -1,5 +1,5 @@
 <template>
-    <section class="ph3 ph5-ns pv5" v-if="showWelcome">
+    <section class="ph3 ph5-ns pv5 bg-white mt4 cf" v-if="showWelcome">
         <article class="mw8 center br2 ba b--light-blue bg-lightest-gray">
             <div class="dt-ns dt--fixed-ns w-100">
             <div class="pa3 pa4-ns dtc-ns v-mid">

@@ -1,7 +1,7 @@
 <template>
     <div id="reverse">
         <h1>{{ title }}</h1>
-        <section class="mw9 center w-50-ns w-100 pa3 ba b--light-blue cf">
+        <section class="mw9 center w-50-ns w-100 pa3 ba b--light-blue bg-white mt4 cf">
             <p>{{ description }}</p>
             <form id="form-reverse" class="center ph3-ns">
                 <div class="mt5">
