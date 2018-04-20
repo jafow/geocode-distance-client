@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-on:click="toggleToast">
+  <div id="app" v-on:click="closeToast">
     <header class="header w-100 h4 h3-ns bg-dark-green">
         <h2 class="header-title h4 h3-ns white mv0 pv3">{{ title }}</h2>
         <div class="menu absolute top-1 left-1" v-on:click.stop="toggleToast" v-bind:class="{pressed: toast === 'expand'}">
@@ -29,23 +29,6 @@
 
     <router-view/>
 
-    <section class="ph3 ph5-ns pv5" v-if="showWelcome">
-        <article class="mw8 center br2 ba b--light-blue bg-lightest-gray">
-            <div class="dt-ns dt--fixed-ns w-100">
-            <div class="pa3 pa4-ns dtc-ns v-mid">
-                <div>
-                <h2 class="fw4 black mt0 mb3">GeoCode App</h2>
-                <p class="black-70 measure lh-copy mv0">
-                    Web application for querying geocode data.
-                </p>
-                </div>
-            </div>
-            <div class="pa3 pa4-ns dtc-ns v-mid">
-                <p v-on:click="getStarted" class="nav-item no-underline f6 tc db w-100 pv3 bg-animate bg-dark-green hover-bg-green white br2">Get Started</p>
-            </div>
-            </div>
-        </article>
-    </section>
     <footer class="pv4 ph3 ph5-m ph6-l mid-gray absolute bottom-0">
         <small class="f6 db tc">© 2018 <b class="ttu">Jared Fowler</b>., All Rights Reserved</small>
     </footer>
@@ -66,6 +49,12 @@ export default {
     toggleToast () {
       let newToast = this.toast === 'expand' ? 'collapse' : 'expand'
       this.toast = newToast
+      return this.toast
+    },
+    closeToast () {
+      if (this.toast === 'expand') {
+        this.toast = 'collapse'
+      }
       return this.toast
     },
     getStarted () {

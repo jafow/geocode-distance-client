@@ -5,7 +5,7 @@
   "author": "jafow <jared.a.fowler@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "test": "node test/test.js | tap-spec",
     "lint": "eslint --ext .js,.vue src test/unit",
