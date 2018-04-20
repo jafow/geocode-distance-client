@@ -1,7 +1,8 @@
 <template>
     <div id="geocode">
-        <h1 class="hello">{{ msg }}</h1>
+        <h1>{{ title }}</h1>
         <section class="w-80-ns w-100 ph-2">
+            <p> {{description }} </p>
             <form id="form-geocode" class="center ph3-ns">
                 <label for="street">Street Address</label>
                 <input type="text" name="street" id="street" placeholder="1600 Amphitheatre Parkway" class="input-reset mv2" />
@@ -20,13 +21,17 @@ export default {
   name: 'Geocode',
   data () {
     return {
-      msg: 'GeoCode Page',
+      description: 'Enter an address to get its latitude and longitude:',
       title: 'GeoCode',
       response: null
     }
   },
   methods: {
     displayMessage: function displayMessage (msg) {
+      if (!msg) {
+        this.response = `Error: Invalid input`
+        return this.response
+      }
       if (msg.lat || msg.lon) {
         this.response = `The latitude is ${msg.lat} and longitude is ${msg.lng}`
       } else {
@@ -36,18 +41,14 @@ export default {
     },
     submit: function submit () {
       let self = this
-      let data = new FormData(document.getElementById('form-geocode'))
+      let formInput = new FormData(document.getElementById('form-geocode'))
       fetch('//localhost:4000/geocode', {
         method: 'POST',
-        body: data,
+        body: formInput,
         mode: 'cors'
       })
         .then(function onFetchSuccess (res) {
-          if (res.ok) {
-            let json = res.json()
-            return json
-          }
-          return res.error
+          return res.json()
         })
         .then(function handleSuccess (json) {
           if (json.error) {
@@ -64,7 +65,6 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;
