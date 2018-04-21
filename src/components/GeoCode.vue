@@ -13,7 +13,7 @@
                     <input type="text" name="city" id="city" placeholder="Mountain View, CA" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
                 </div>
                 <div class="mt3">
-                    <button class="btn br-15 bg-dark-green white fw6 pv2 ph3 fr bn shadow-3" v-on:click="submit">Submit</button>
+                    <button class="btn br-15 bg-dark-green white fw6 pv2 ph3 fr bn shadow-3" v-on:click.prevent="submit" type="button" form="form-geocode">Submit</button>
                 </div>
             </form>
             <p class="response-msg">{{response}}</p>

@@ -13,7 +13,7 @@
                     <label class="fl db ph3 lh-copy" for="long">Longitude</label>
                     <input type="text" name="long" id="long" placeholder="-122.0842499" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
                 </div>
-                <button class="btn br-15 bg-dark-green white fw6 pv2 ph3 fr bn shadow-3" v-on:click="submit">Submit</button>
+                <button class="btn br-15 bg-dark-green white fw6 pv2 ph3 fr bn shadow-3" v-on:click.prevent="submit" type="button" form="form-reverse">Submit</button>
             </form>
             <p class="response-msg">{{response}}</p>
         </section>

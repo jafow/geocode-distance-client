@@ -9,18 +9,18 @@
                     <input type="text" name="lat1" id="lat1" placeholder="37.4224764" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
                 </div>
                 <div class="mt3">
-                    <label for="long1" class="fl db ph3 lh-copy">Longitude 1</label>
-                    <input type="text" name="lat1" id="lat1" placeholder="37.4224764" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
+                    <label for="lon1" class="fl db ph3 lh-copy">Longitude 1</label>
+                    <input type="text" name="lon1" id="lon1" placeholder="37.4224764" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
                 </div>
                 <div class="mt3">
                     <label for="lat2" class="fl db ph3 lh-copy">Latitude 2</label>
                     <input type="text" name="lat2" id="lat2" placeholder="37.4224764" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
                 </div>
                 <div class="mt3">
-                    <label for="long2" class="fl db ph3 lh-copy">Longitude 2</label>
-                    <input type="text" name="long2" id="long2" placeholder="37.4224764" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
+                    <label for="lon2" class="fl db ph3 lh-copy">Longitude 2</label>
+                    <input type="text" name="lon2" id="lon2" placeholder="37.4224764" class="input-reset mv2 h2 bg-transparent ba b--black w-90 measure" />
                 </div>
-                <button class="btn br-15 bg-dark-green white fw6 pv2 ph3 fr bn shadow-3" v-on:click="submit">Submit</button>
+                <button class="btn br-15 bg-dark-green white fw6 pv2 ph3 fr bn shadow-3" v-on:click.prevent="submit" type="button" form="form-coords">Submit</button>
             </form>
             <p class="response-msg">{{response}}</p>
         </section>
@@ -44,7 +44,7 @@ export default {
         return this.response
       }
       if (msg.SUCCESS) {
-        this.response = `The distance between is: ${msg.distance} miles`
+        this.response = `The distance between these points is: ${msg.distance} miles`
       } else {
         this.response = `There was an error in this request: ${msg}`
       }
@@ -52,8 +52,8 @@ export default {
     },
     submit: function submit () {
       let self = this
-      let formInput = new FormData(document.getElementById('form-reverse'))
-      fetch('//localhost:4000/address', {
+      let formInput = new FormData(document.getElementById('form-coords'))
+      fetch('//localhost:4000/distance', {
         method: 'POST',
         body: formInput,
         mode: 'cors'
